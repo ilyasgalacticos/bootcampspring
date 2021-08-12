@@ -34,9 +34,7 @@ public class HomeController {
     @Autowired
     private FirstBean firstBean;
 
-    @Autowired
-    @Qualifier("kirillBean")
-    private ItemManager itemManager;
+    //There is no Kirill Bean
 
     @Autowired
     @Qualifier("dbBean")
