@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/main.html">
+    <div layout:fragment="siteContent">
+        <form th:action="@{'/additem'}" method="post">
+            <div class="mt-2">
+                <label>NAME : </label>
+                <input type="text" name="name" class="form-control mt-2" required>
+            </div>
+            <div class="mt-2">
+                <label>DESCRIPTION : </label>
+                <textarea class="form-control mt-2" required name="description"></textarea>
+            </div>
+            <div class="mt-2">
+                <label>PRICE : </label>
+                <input type="number" name="price" class="form-control mt-2" required>
+            </div>
+            <div class="mt-2">
+                <label>AMOUNT : </label>
+                <input type="amount" name="amount" class="form-control mt-2" required>
+            </div>
+            <div class="mt-2">
+                <label>BRAND : </label>
+                <select class="form-select mt-2" name="brand_id">
+                    <option th:each="br : ${brands}" th:text="${br.name + ' / ' + br.country}" th:value="${br.id}"></option>
+                </select>
+            </div>
+            <div class="mt-3">
+                <button class="btn btn-success">ADD ITEM</button>
+            </div>
+        </form>
+    </div>
+</html>

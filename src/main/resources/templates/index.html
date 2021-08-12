@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/main.html">
+    <div layout:fragment="siteContent">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th th:text="#{table.name}"></th>
+                <th th:text="#{table.brand}"></th>
+                <th th:text="#{table.price}"></th>
+                <th th:text="#{table.amount}"></th>
+                <th th:text="#{table.details}"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="tov : ${tovary}">
+                <td th:text = "${tov.id}"></td>
+                <td th:text = "${tov.name}"></td>
+                <td th:text = "${tov.brand.name + '/' + tov.brand.country}"></td>
+                <td th:text = "${tov.price}"></td>
+                <td th:text = "${tov.amount}"></td>
+                <td>
+                    <a th:href="@{'/details/' + ${tov.id} + '-page.html'}" class="btn btn-primary btn-sm" th:text="#{table.details}"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</html>
